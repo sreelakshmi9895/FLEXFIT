@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Eligbility</title>
+    <!-- Bootstrap cdn -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center text-primary my-5">Voting Eligbility</h1>
+        <div class="row my-5">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 d-flex">
+                <input id="userInput" class="form-control" placeholder="Enter your age!!!!">
+                <button onclick="check()" class="btn btn-primary ms-2">Check</button>
+            </div>
+            <div id="output" class="font-bold fs-5 text-center"></div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</body>
+<script>
+    function check(){
+        const age= userInput.value
+        console.log(age);
+        if(age){
+            age>18?output.innerHTML=`<p class="text-success">"ELIGIBLE FOR VOTING"</p>`:output.innerHTML=`<p class="text-danger">"NOT ELIGIBLE FOR VOTING"</p>`
+        }else{
+           alert("Input valid data")
+        }
+    }
+</script>
+</html>

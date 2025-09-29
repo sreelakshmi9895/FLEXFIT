@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="bg-info p-3">
+       <div class="container-fluid d-flex justify-content-between ">
+   <img width="80px" src="https://cmsv2-assets.apptegy.net/uploads/13415/file/1370063/bcb443cd-a1ee-4558-bcfa-a8a59572f995.png" alt="">
+   <button onclick="logout()" class="btn text-dark">Logout</button>
+       </div> 
+    </div>
+    <div>
+        <h1 class="text-danger">Hi<span id="loginUser" class="max text-warning"> User</span></h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ipsam, autem optio nostrum quae sunt voluptates ea, consequuntur, aut vel fugit eaque repudiandae! Suscipit blanditiis recusandae, deserunt qui ad ratione! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto ipsam, autem optio nostrum quae sunt voluptates ea, consequuntur, aut vel fugit eaque repudiandae! Suscipit blanditiis recusandae, deserunt qui ad ratione! <br>
+        Id saepe illo voluptates! Eius fugiat blanditiis consequuntur quod quidem accusantium suscipit at nesciunt ullam et beatae, inventore fuga, minima facilis voluptatum dolore animi. Praesentium quasi assumenda voluptatum corporis debitis?
+        Architecto temporibus quas, cupiditate dolores similique quia hic provident explicabo doloribus quisquam fugiat, mollitia, maiores modi est! Officia, laboriosam, earum sunt est, minima repudiandae esse eos ipsa dolores laudantium sed! <br> Id saepe illo voluptates! Eius fugiat blanditiis consequuntur quod quidem accusantium suscipit at nesciunt ullam et beatae, inventore fuga, minima facilis voluptatum dolore animi. Praesentium quasi assumenda voluptatum corporis debitis?
+        Architecto temporibus quas, cupiditate dolores similique quia hic provident explicabo doloribus quisquam fugiat, mollitia, maiores modi est! Officia, laboriosam, earum sunt est, minima repudiandae esse eos ipsa dolores laudantium sed!</p>
+    </div>
+</body>
+<script>
+  const user = localStorage.getItem("user")
+  loginUser.innerHTML =user
+
+if(!localStorage.getItem("user")){
+    alert("please login")
+    window.location = "login.html"
+}
+
+const logout = ()=>{
+    localStorage.removeItem("user")
+    window.location = "login.html"
+}
+
+
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container bg-dark">
+       <div class="row justify-content-center p-5 align-items-center">
+        <div class="col-md-6">
+  <input id="result" class="form-control w-50 text-end" placeholder="0">
+         <div class="row my-2 w-50 g-2">
+            <div class="col-3"><button class="btn btn-light w-100" onclick="displayContent('7')" id="seven">7</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="displayContent('8')" id="eight">8</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="displayContent('9')" id="nine">9</button></div>
+            <div class="col-3"><button class="opt btn btn-light w-100" onclick="displayContent('*')" id="mul">&#215</button></div>
+        </div>
+         <div class="row my-2 w-50 g-2">
+            <div class="col-3"><button class="btn btn-light w-100" onclick="displayContent('4')" id="four">4</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="displayContent('5')" id="five">5</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="displayContent('6')" id="six">6</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="displayContent('-')" id="sub">-</button></div>
+        </div>
+         <div class="row my-2 w-50 g-2">
+            <div class="col-3"><button class="btn btn-light w-100" onclick="displayContent('1')" id="one">1</button></div>
+            <div class="col-3"><button class="btn btn-light w-100"onclick="displayContent('2')" id="two">2</button></div>
+            <div class="col-3"><button class="btn btn-light w-100"onclick="displayContent('3')" id="three">3</button></div>
+            <div class="col-3"><button class="btn btn-light w-100"onclick="displayContent('+')" id="add">+</button></div>
+        </div>
+        <div class="row my-2 w-50 g-2">
+            <div class="col-3"><button class="btn btn-light w-100" onclick="clearCalcDisplay('ac')">AC</button></div>
+            <div class="col-3"><button class="btn btn-light w-100"onclick="displayContent('0')" id="zero">0</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="displayContent('/')" id="div">&#247</button></div>
+            <div class="col-3"><button class="btn btn-light w-100" onclick="calculatorEval('=')" id="equal">&#61</button></div>
+        </div>
+        <div><button class="btn btn-light w-50" onclick="lastDigitCalcScreen('del')" id="delete">del</button></div>
+    </div>
+    </div>
+    </div>
+</body>
+<script src="./main.js">
+
+</script>
+</html>

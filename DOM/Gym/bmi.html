@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container border p-5 bg-warning-subtle text-center">
+    <h1 class="fw-bold text-dark">BMI CALCULATOR</h1>
+
+    <div class="mt-5 fw-semibold">
+      <label for="weight">Weight</label>
+      <input type="number" id="weight" placeholder="Enter your weight(kg)">
+    </div>
+<div class="mt-5 fw-semibold">
+      <label for="height">Height</label>
+      <input type="number" id="height" placeholder="Enter your height(cm)">
+    </div>
+<button class="btn btn-success w-50 mt-5" onclick="calcBMI()">Calculate BMI</button>
+    <div class="mt-4 text-center">
+      <h4 id="heading"></h4>
+      <p id="output"></p>
+      <p id="message"></p>
+    </div>
+<button class="btn btn-warning w-50 mt-2" onclick="goBack()">Back to Home</button>
+  </div>
+</body>
+<script>
+    function calcBMI() {
+      const weight = document.getElementById("weight").value;
+      const height = document.getElementById("height").value;
+
+      const bmi = weight / ((height / 100) * (height / 100));
+
+    document.getElementById("heading").innerHTML = "Your BMI is:";
+      document.getElementById("output").innerHTML = bmi;
+ if (bmi < 18.5) {
+    document.getElementById("message").innerHTML = "You are Underweight";
+      } 
+      else if (bmi >= 18.5 && bmi <= 24.9) {
+        document.getElementById("message").innerHTML = "You are in Healthy Weight";
+      } 
+      else {
+        document.getElementById("message").innerHTML = "You are Overweight";
+      }
+    }
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+</script>
+</html>

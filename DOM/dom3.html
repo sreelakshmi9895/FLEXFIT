@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div id="output" style="height:100vh; font-size:100px;" class="text-center text-light bg-dark d-flex justify-content-center align-items-center font-bold">8:15:20:PM</div>
+</body>
+<script>
+    const getTime =()=>{
+    const today = new Date()
+    const hours = today.getHours()
+    const minutes = today.getMinutes()
+    const seconds = today.getSeconds()
+ output.innerHTML =`${hours}:${minutes}:${seconds}`
+ setTimeout(()=>{
+    getTime()},1000);   
+ }
+ getTime()
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+  <h1 class="text-primary text-center my-5">User List</h1>
+  <table class="table my-5">
+<thead>
+    <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Website</th>
+        <th>Company</th>
+    </tr>
+</thead>
+<tbody>
+    <td>1</td>
+    <td>name</td>
+    <td>address</td>
+    <td>phone</td>
+    <td>email</td>
+    <td>website</td>
+    <td>company</td>
+</tbody>
+  </table>
+    </div>
+</body>
+<script>
+    const httpRequestConfig = new XMLHttpRequest
+    httpRequestConfig.open("GET","https://jsonplaceholder.typicode.com/users")
+    // console.log(httpRequestConfig.readyState);
+    httpRequestConfig.send()
+    httpRequestConfig.onreadystatechange =()=>{
+        console.log(httpRequestConfig.readyState);
+        if(httpRequestConfig.readyState==4){
+            if(httpRequestConfig.status>=200 && httpRequestConfig.status<300){
+                // console.log(httpRequestConfig.responseText);
+                const allUsers = JSON.parse(httpRequestConfig.responseText)
+                // console.log(allUsers); 
+            }
+            else{
+                console.log('API Call Failed');
+                
+            }
+        }
+    }
+</script>
+</html>
