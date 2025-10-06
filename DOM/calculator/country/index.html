@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div style="min-height: 100vh;" class="bg-success-subtle d-flex flex-column text-white justify-content-center">
+  <div class="text-center justify-content-center my-5">
+     <h1 class="text-danger-emphasis fw-bolder fs-1">Know More About Countries</h1>
+     <div class="flex">
+         <input class="p-1 bg-warning-subtle border" type="text" placeholder="Enter country name">
+         <button onclick="allCountries()" id="output" style="width: 100px;" class="btn btn-info p-1" ><i class="fa-solid fa-magnifying-glass"></i></button>
+     </div>
+  </div>
+    </div>
+</body>
+<script>
+    const allCountries = async ()=>{
+     const response = await fetch("https://restcountries.com/v3.1/name/aruba?fullText=true") 
+     const result =await response.json()
+     console.log(result);
+      const tld = result.tld
+ console.log(tld);
+    }
+</script>
+</html>

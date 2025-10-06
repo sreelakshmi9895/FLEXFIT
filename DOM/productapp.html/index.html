@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div style="min-height: 100vh;" class="container bg-warning-subtle justify-content-center text-center d-flex flex-column">
+  <div class="d-flex flex-column align-items-center justify-content-center" >
+ <h1 class="fw-bolder fs-1 py-5 text-danger-emphasis">Product Searching App</h1>
+ <div class="d-flex flex-row g-4">
+    <input id="Inputdata" style="width: 500px;" type="text" class="form-control bg-success-subtle" placeholder="Search products">
+    <button onclick="getProducts()" class="btn btn-warning p-2 w-25 ms-2"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+ </div>
+  </div>
+
+       <div>
+   <div class="border border-dark rounded bg-warning-subtle p-5 py-5 my-5">
+  <div id="output" class="text-success fs-2 fw-semibold text-center">Search for products
+  </div>
+     </div>
+       </div>
+    </div>
+</body>
+<script>
+   
+    const Inputdata = document.getElementById("Inputdata");
+    const output = document.getElementById("output");
+
+   const getProducts = async ()=>{
+   const productName = Inputdata.value.trim();
+   try{
+    const response = await fetch("https://dummyjson.com/products")
+    const result = await response.json()
+    const products = result.products 
+    output.innerHTML =""
+    let found= false;
+    products.forEach(product=>{
+        if(product.title.toLowerCase().includes(productName)){
+            found=true;
+        output.innerHTML +=`
+        <div class="text-success fs-2 fw-semibold text-center border rounded p-4 my-3 bg-light text-dark">
+                <img src="${product.thumbnail}" width="200" class="rounded shadow mb-3">
+                <h3>ProductName: ${product.title}</h3>
+                <h4>Category: ${product.category}</h4>
+                <h4>Price: $${product.price}</h4>
+                <h4>Rating: ${product.rating}</h4>
+                <p>Description: ${product.description}</p>
+              </div>
+        `
+        }
+    })
+    if(!found){
+       output.innerHTML = `<p class="fw-bold text-danger">Product not found!!!!!</p>`
+    }
+   }catch(error){
+    output.innerHTML = `<p class="fw-bold text-danger">Error!!!!!</p>`
+    console.log(error);
+   }
+   }
+</script>
+</html>

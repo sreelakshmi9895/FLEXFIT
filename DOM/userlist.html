@@ -21,14 +21,16 @@
         <th>Company</th>
     </tr>
 </thead>
-<tbody>
-    <td>1</td>
-    <td>name</td>
-    <td>address</td>
-    <td>phone</td>
-    <td>email</td>
-    <td>website</td>
-    <td>company</td>
+<tbody id="output">
+ <tr>
+        <td>1</td>
+        <td>name</td>
+        <td>address</td>
+        <td>phone</td>
+        <td>email</td>
+        <td>website</td>
+        <td>company</td>
+ </tr>
 </tbody>
   </table>
     </div>
@@ -39,12 +41,25 @@
     // console.log(httpRequestConfig.readyState);
     httpRequestConfig.send()
     httpRequestConfig.onreadystatechange =()=>{
-        console.log(httpRequestConfig.readyState);
+        // console.log(httpRequestConfig.readyState);
         if(httpRequestConfig.readyState==4){
             if(httpRequestConfig.status>=200 && httpRequestConfig.status<300){
                 // console.log(httpRequestConfig.responseText);
                 const allUsers = JSON.parse(httpRequestConfig.responseText)
                 // console.log(allUsers); 
+                allUsers.forEach((user,index)=>{
+                    output.innerHTML += `
+                    <tr>
+        <td>${index+1}</td>
+        <td>${user.name}</td>
+        <td>${user.address.street},${user.address.suite},${user.address.city},${user.address.zipcode}</td>
+        <td>${user.phone}</td>
+        <td>${user.email}</td>
+        <td>{$user.website}</td>
+        <td>${user.company.name}</td>
+ </tr>
+                 `
+                })
             }
             else{
                 console.log('API Call Failed');
